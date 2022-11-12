@@ -37,8 +37,6 @@ app.get('/xyz/:video_name', (req, res) => {
         })
             .then(res => res.json())
             .then((json) => {
-                console.log(json)
-
                 const videoPath = json.path;
                 const videoSize = fs.statSync(videoPath).size;
                 const CHUNK_SIZE = 10 ** 6;
@@ -86,6 +84,20 @@ app.get('/xyz/:video_name', (req, res) => {
     }
 })
 
+
+app.get("/servername",(req,res)=>{
+
+    if(REQUEST_COUNT % 2 == 0)
+    {
+        res.send({"server":"2"});
+    }
+    else
+    {
+        res.send({"server":"1"});
+    }
+})
+
+
 app.get("/videos", async (req, res) => {
     console.log("working...")
     const result = {}
@@ -130,6 +142,25 @@ app.get("/user_login", (req, res) => {
     })
 })
 
+
+app.get("/userdetails", (req, res) => {
+
+    DataBase.collection("User_Details").find({}).toArray(function(err, result) {
+        if (err)
+        {
+            res.status(401).send();
+        }
+        else
+        {
+            console.log(result);
+            res.send(result);
+
+
+        }
+      });
+
+  
+})
 var DataBase;
 
 function DB_CONECTION() {

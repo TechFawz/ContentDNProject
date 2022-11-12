@@ -12,12 +12,12 @@ function NavBar() {
                 <NavLink to="home" className={({ isActive }) => isActive ? 'ButtonAffter':'Button' }>Home</NavLink>
                 <NavLink to="aboutus" className={({ isActive }) => isActive ? 'ButtonAffter':'Button'}>About Us</NavLink>
                 <NavLink to="contactus" className={({ isActive }) => isActive ? 'ButtonAffter':'Button'}>Contact Us</NavLink>
-                <Link to="/" className="Button">  Restart</Link>
+                <Link to="/" className="Button">Logout</Link>
             </div>
 
 
-            <div className='UserDetails'>Admin <FontAwesomeIcon icon={faUser} /></div>
-            <div className='WelcomSide'>Welcome to CDN Project</div>
+            <div className='UserDetails'>{localStorage.getItem("user")} <FontAwesomeIcon icon={faUser} /></div>
+            <div className='WelcomSide'>Welcome to CDN Project {localStorage.getItem("name")}</div>
         </div>
     )
 }

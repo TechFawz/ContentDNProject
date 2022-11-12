@@ -99,7 +99,9 @@ function CheckLogin(id,password,path,navigate)
         axios.get('http://localhost:9080/user_login',{params: login_details}).then( res => {
             if(res.data.status==200)
             {
-                navigate(`/containt/user/${res.data.name}`);               
+                localStorage.setItem("name",res.data.name)
+                localStorage.setItem("user","User")
+                navigate(`/containt/user`);               
             }
             else
             {
@@ -114,7 +116,9 @@ function CheckLogin(id,password,path,navigate)
         axios.get('http://localhost:9080/admin_login',{params: login_details}).then( res => {
             if(res.data.status==200)
             {
-                navigate(`/containt/admin/${res.data.name}`);           
+                localStorage.setItem("name",res.data.name);
+                localStorage.setItem("user","Admin");
+                navigate(`/containt/admin`);            
             }
             else
             {

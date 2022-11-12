@@ -35,14 +35,21 @@ function VidioFormate(data) {
 
     const Img = useRef();
     const vidio = useRef();
+    const serverRef = useRef();
     const[video,SetVideo] = useState();
+    const [server , SetServer] = useState("");
    
 
     const playVidio = ()=>{
 
         Img.current.style.display="none";
         vidio.current.style.display="block";
+        serverRef.current.style.display="block";
         vidio.current.play();
+        axios.get('http://localhost:9080/servername').then( res => {
+            SetServer(res.data.server);
+        });
+
     }
 
   
@@ -66,6 +73,8 @@ function VidioFormate(data) {
             <video width="350" height="240" className="Vidios" ref={vidio} controls >
                 <source src={`http://localhost:9080/xyz/${data.Name}`} type="video/mp4" />
             </video>
+
+            <h5 ref={serverRef} style={{display:"none"}} >Replica Server - {server}</h5>
 
 
         </div>

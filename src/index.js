@@ -8,6 +8,7 @@ import Home from "./home";
 import AboutUs from "./aboutus";
 import ContactUs from "./contactus";
 import Login from "./login";
+import  {AdminPageHome,AdminPage} from "./Admin";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -22,9 +23,15 @@ export default function Appa() {
     <Router>
       <Routes>
         <Route path="/" element={<StartWelcome/>}/>
-        <Route path="containt/:type/:name" element={<Containt/>}>
+        <Route path="containt/user" element={<Containt/>}>
           <Route index element={<Navigate to="home" />}/>
           <Route path="home" element={<Home/>} />
+          <Route path="aboutus" element={<AboutUs/>} />
+          <Route path="contactus" element={<ContactUs/>} />
+        </Route>
+        <Route path="containt/admin" element={<AdminPage/>}>
+        <Route index element={<Navigate to="home" />}/>
+          <Route path="home" element={<AdminPageHome/>} />
           <Route path="aboutus" element={<AboutUs/>} />
           <Route path="contactus" element={<ContactUs/>} />
         </Route>
