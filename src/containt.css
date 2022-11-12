@@ -1,0 +1,11 @@
+.ContaintContainer
+{
+    background:linear-gradient(-90deg, rgba(254, 219, 57, 0.08) 1px, transparent 1px),linear-gradient(rgba(254, 219, 57, 0.08) 1px, transparent 1px),rgb(35, 41, 54);
+    background-size:10px 10px,10px 10px;  
+    min-width:100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}

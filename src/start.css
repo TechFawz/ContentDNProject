@@ -1,0 +1,69 @@
+.WelcomeContainer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background:linear-gradient(-90deg, rgba(254, 219, 57, 0.08) 1px, transparent 1px),linear-gradient(rgba(254, 219, 57, 0.08) 1px, transparent 1px),rgb(35, 41, 54);
+    background-size:10px 10px,10px 10px;    
+    color: rgb(255, 255, 255);
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    animation-name: BackgroundAnimation;
+    animation-duration: 2s;
+}
+
+
+.WelcomeContainerText
+{
+    text-align:center;
+}
+
+@keyframes BackgroundAnimation {
+    from { background-color: rgba(35, 41, 54,0.6);}
+    to { background-color: rgba(35, 41, 54,1);}
+}
+
+
+@keyframes WelcomeHeading {
+    from {font-size: 12px; color: rgba(255, 255, 255, 0);}
+    to {font-size: 40px; color: rgba(255, 255, 255, 1);}
+}
+
+@keyframes SubHeading {
+    from {font-size: 5px; color: rgba(255, 255, 255, 0);}
+    to {font-size: 18px; color: rgba(255, 255, 255, 1);}
+}
+
+.WelcomeContainerTextSubHeading
+{
+    animation-name: SubHeading;
+    animation-duration: 2s;
+    font-size:18px;
+}
+
+.WelcomeContainerTextWelcome
+{
+    animation-name: WelcomeHeading;
+    animation-duration: 2s;
+    font-size:40px;
+}
+
+.LoginButton
+{
+    padding: 10px;
+    background: rgba(254, 219, 57, 0.2);
+    border-radius: 5px;
+    margin: 10px;
+    cursor:pointer;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight:700;
+    text-align: center;
+}
+
+.LoginButton:hover
+{
+    color: white;
+
+}
+
+

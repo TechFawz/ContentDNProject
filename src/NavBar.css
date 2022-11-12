@@ -1,0 +1,91 @@
+a {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+a:hover,
+a:focus,
+a:active {
+    text-decoration: none !important;
+    color: currentColor !important;
+}
+
+
+.NavBarContainer {
+    background-color: rgba(254, 219, 57, 0.2);
+    padding: 20px 10px;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    right: 10vw;
+    left: 10vw;
+    top: 0;
+}
+
+
+.NavBarOptionContainer {
+    display: flex;
+    gap: 30px;
+    font-weight: 500;
+    font-size: 20px;
+    padding: 5px;
+
+}
+
+.Button {
+    color: rgba(255, 255, 255, 0.7) !important;
+    border-bottom: 3px solid rgba(255, 255, 255, 0);
+}
+
+.Button:hover {
+    color: white !important;
+    border-bottom: 3px solid white;
+}
+
+.ButtonAffter {
+    color: rgba(255, 255, 255, 0.7) !important;
+    border: 3px solid;
+}
+
+.ButtonAffter:hover {
+    color: white !important;
+}
+
+.WelcomSide {
+    position: absolute;
+    right: 15px;
+    color: white;
+    bottom: 5px;
+}
+
+.UserDetails {
+    position: absolute;
+    right: 15px;
+    color: white;
+    bottom: 25px;
+}
+
+@media screen and (max-width: 600px) {
+    .NavBarOptionContainer {
+
+        font-weight: 400;
+        font-size: 16px;
+        gap: 20px
+    }
+
+    .NavBarContainer {
+        right: 5vw;
+        left: 5vw;
+    }
+}
+
+@media screen and (max-width: 820px) {
+    .WelcomSide {
+        display: none;
+    }
+
+    .UserDetails {
+        display: none;
+    }
+
+}

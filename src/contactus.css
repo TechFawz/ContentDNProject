@@ -1,0 +1,35 @@
+.ContactUsContainer
+{
+    text-align: center;
+    padding: 2% 5%;
+    background-color: rgba(254, 219, 57, 0.2);
+    max-width: 70vw;
+}
+
+.ContactUsContainerHeading
+{
+    color: wheat;
+    font-size: 2rem;
+}
+
+.ContactUsContainerContactUs
+{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    font-size: x-large;
+    color: rgb(35, 41, 54);
+    padding: 10px;
+}
+
+.icon
+{
+    cursor: pointer;
+}
+
+.icon:hover
+{
+    color:white;
+
+}

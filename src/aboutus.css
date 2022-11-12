@@ -1,0 +1,33 @@
+.AboutUsContainer
+{
+    text-align: center;
+    padding: 0 5%;
+    padding-bottom: 3%;
+    background-color: rgba(254, 219, 57, 0.2);
+    max-width: 70vw;
+
+}
+
+.AboutUsContainerHeading
+{
+    color: wheat;
+    font-size: 2rem;
+}
+
+.AboutUsContainerAboutUs
+{
+    color: rgb(255 255 255 / 67%);
+    font-weight: 700;
+    font-size: larger;
+}
+
+.AboutUsContainerAboutUsSpan
+{
+    color:white;
+}
+
+.myimage
+{
+    border-radius:50%;
+    margin:10px;
+}
