@@ -39,7 +39,7 @@ function VidioFormate(data) {
 
 
         <div>
-            <h2 style={{ color: "rgba(254, 219, 57, 0.4)", padding: "10px" }}>{data.Name}</h2>
+            <h2 style={{ color: "#395B64", padding: "10px" }}>{data.Name}</h2>
             <Vidio data={data} />
 
 
