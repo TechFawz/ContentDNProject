@@ -2,7 +2,7 @@ import { faEye, faEyeSlash, faLock, faUser } from "@fortawesome/free-solid-svg-i
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import "./login.css";
 
@@ -16,6 +16,11 @@ function Login() {
     const PasswordRef = useRef();
     const location = useLocation();
 
+    useEffect(()=>{
+        localStorage.removeItem("name");
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+    },[])
     return (
         <div className="ContaintContainer">
             <div>
@@ -97,34 +102,30 @@ function CheckLogin(id,password,path,navigate)
     if(path=="/login/user")
     {
         axios.get('http://localhost:9080/user_login',{params: login_details}).then( res => {
-            if(res.data.status==200)
-            {
-                localStorage.setItem("name",res.data.name)
+           
+            localStorage.setItem("token",res.data.token);
+            localStorage.setItem("name",res.data.name);
                 localStorage.setItem("user","User")
                 navigate(`/containt/user`);               
-            }
-            else
-            {
-                document.getElementsByClassName("WrongPasword")[0].style.display="block";
-
-            }
-
+        },err=>{
+            document.getElementsByClassName("WrongPasword")[0].style.display="block";
         });
     }
     else if(path=="/login/admin")
     {
         axios.get('http://localhost:9080/admin_login',{params: login_details}).then( res => {
-            if(res.data.status==200)
-            {
+           
+                localStorage.setItem("token",res.data.token);
                 localStorage.setItem("name",res.data.name);
                 localStorage.setItem("user","Admin");
                 navigate(`/containt/admin`);            
-            }
-            else
-            {
-                document.getElementsByClassName("WrongPasword")[0].style.display="block";
+         
+            
+                
 
-            }
+            
+        },err=>{
+            document.getElementsByClassName("WrongPasword")[0].style.display="block";
         });
     }
  

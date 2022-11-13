@@ -6,7 +6,9 @@ const mongoose = require("mongoose");
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const fs = require('fs');
-
+var Jwt = require('jsonwebtoken');
+const { verify } = require('crypto');
+var jwtKey = "Key-CDN_Project"
 let REQUEST_COUNT = 0
 
 app.use(cors());
@@ -112,14 +114,29 @@ app.get("/admin_login", (req, res) => {
 
     const data = req.query;
     DataBase.collection("Admin_Details").findOne({ LoginId: data.id, password: data.password }, (err, result) => {
-        if (err) throw err
+        if (err) 
+        {
+            res.status(401).send();
+
+        }
 
         else {
             if (result != null) {
-                res.send({ status: 200, name: result.name });
+
+                let name = result.name;
+                Jwt.sign({ name }, jwtKey, (e, token) => {
+                    if (e) {
+                        res.status(401).send();
+                    }
+
+                    else {
+                        res.send({name:name, token: token });
+                    }
+                })
             }
             else {
-                res.send({ status: 401, name: "" });
+                res.status(401).send();
+
             }
         }
 
@@ -130,13 +147,26 @@ app.get("/user_login", (req, res) => {
 
     const data = req.query;
     DataBase.collection("User_Details").findOne({ LoginId: data.id, password: data.password }, (err, result) => {
-        if (err) throw err
+        if (err) 
+        {
+            res.status(401).send();
+
+        }
         else {
             if (result != null) {
-                res.send({ status: 200, name: result.name });
+                let name = result.name;
+                Jwt.sign({ name }, jwtKey, (e, token) => {
+                    if (e) {
+                        res.status(401).send();
+                    }
+
+                    else {
+                        res.send({name:name, token: token });
+                    }
+                })
             }
             else {
-                res.send({ status: 401, name: "" });
+                res.status(401).send();
             }
         }
     })
@@ -220,6 +250,26 @@ app.get("/user_login", (req, res) => {
 
 })
 
+
+function VerifyToken(req, res, next) {
+    let token = req.headers['authorization'];
+    if (token) {
+        Jwt.verify(token, jwtKey, (err, vaild) => {
+            if (err) {
+                res.status(401).send({ result: "Please Add Correct Token With Header" });
+
+            }
+            else {
+                next();
+            }
+
+        })
+    }
+
+    else {
+        res.status(403).send({ result: "Please Add Token With Header" });
+    }
+}
 
 app.listen(PORT, () => {
     console.log(`listening on PORT ${PORT}`)
