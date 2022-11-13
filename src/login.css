@@ -1,6 +1,6 @@
 .HeadingLogin
 {
-    color: rgba(255, 255, 255, 0.7);
+    color: #395B64;
     font-size: 30px;
     font-weight: 900;
     justify-content: center;
@@ -11,7 +11,7 @@
 
 .LoginContainer
 {
-    background: rgba(254, 219, 57, 0.2);
+    background: #395B64;
     border-radius: 5px;
     text-align: center;
     display: flex;

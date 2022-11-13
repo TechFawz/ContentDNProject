@@ -85,7 +85,7 @@ app.get('/xyz/:video_name', (req, res) => {
 })
 
 
-app.get("/servername",(req,res)=>{
+app.get("/servername",VerifyToken,(req,res)=>{
 
     console.log(REQUEST_COUNT);
 
@@ -100,7 +100,7 @@ app.get("/servername",(req,res)=>{
 })
 
 
-app.get("/videos", async (req, res) => {
+app.get("/videos",VerifyToken, async (req, res) => {
     console.log("working...")
     const result = {}
     const videos = await DataBase.collection("videos").find({});
@@ -173,7 +173,7 @@ app.get("/user_login", (req, res) => {
 })
 
 
-app.get("/userdetails", (req, res) => {
+app.get("/userdetails",VerifyToken, (req, res) => {
 
     DataBase.collection("User_Details").find({}).toArray(function(err, result) {
         if (err)
@@ -206,50 +206,6 @@ function DB_CONECTION() {
         }
     });
 }
-
-app.get("/admin_login", (req, res) => {
-
-    const data = req.query;
-    DataBase.collection("Admin_Details").findOne({LoginId:data.id , password: data.password},(err,result)=>{
-        if(err)throw err
-
-        else
-        {
-            if(result!=null)
-            {
-                res.send({status:200,name:result.name});
-            }
-            else
-            {
-                res.send({status:401,name:""});
-            }
-        }
-  
-    })
-})
-
-app.get("/user_login", (req, res) => {
-
-    const data = req.query;
-    DataBase.collection("User_Details").findOne({LoginId:data.id , password: data.password},(err,result)=>{
-        if(err)throw err
-
-        else
-        {
-            if(result!=null)
-            {
-                res.send({status:200,name:result.name});
-            }
-            else
-            {
-                res.send({status:401,name:""});
-            }
-        }
-  
-    })
-
-})
-
 
 function VerifyToken(req, res, next) {
     let token = req.headers['authorization'];

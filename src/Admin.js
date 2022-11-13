@@ -22,7 +22,7 @@ function AdminPageHome()
     const [data , SetData] =  useState([]);
 
     useEffect(()=>{
-        axios.get('http://localhost:9080/userdetails',{params: {}}).then( res => {
+        axios.get('http://localhost:9080/userdetails',{params: {},headers: { "authorization": localStorage.getItem("token") }}).then( res => {
         console.log(res.data);
        SetData(res.data);
     });

@@ -2,13 +2,14 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background:linear-gradient(-90deg, rgba(254, 219, 57, 0.08) 1px, transparent 1px),linear-gradient(rgba(254, 219, 57, 0.08) 1px, transparent 1px),rgb(35, 41, 54);
-    background-size:10px 10px,10px 10px;    
-    color: rgb(255, 255, 255);
+    /* background:linear-gradient(-90deg, rgba(254, 219, 57, 0.08) 1px, transparent 1px),linear-gradient(rgba(254, 219, 57, 0.08) 1px, transparent 1px),rgb(35, 41, 54);
+    background-size:10px 10px,10px 10px;     */
+    background-color: #E7F6F2;
+    color: #395B64;
     display: grid;
     align-items: center;
     justify-items: center;
-    animation-name: BackgroundAnimation;
+    /* animation-name: BackgroundAnimation; */
     animation-duration: 2s;
 }
 
@@ -17,21 +18,21 @@
 {
     text-align:center;
 }
-
+/* 
 @keyframes BackgroundAnimation {
     from { background-color: rgba(35, 41, 54,0.6);}
     to { background-color: rgba(35, 41, 54,1);}
-}
+} */
 
 
 @keyframes WelcomeHeading {
-    from {font-size: 12px; color: rgba(255, 255, 255, 0);}
-    to {font-size: 40px; color: rgba(255, 255, 255, 1);}
+    from {font-size: 12px; color: #395b6400;}
+    to {font-size: 40px; color: #395B64;}
 }
 
 @keyframes SubHeading {
-    from {font-size: 5px; color: rgba(255, 255, 255, 0);}
-    to {font-size: 18px; color: rgba(255, 255, 255, 1);}
+    from {font-size: 5px; color: #395b6400;}
+    to {font-size: 18px; color: #395B64;}
 }
 
 .WelcomeContainerTextSubHeading
@@ -51,11 +52,11 @@
 .LoginButton
 {
     padding: 10px;
-    background: rgba(254, 219, 57, 0.2);
+    background: #395B64;
     border-radius: 5px;
     margin: 10px;
     cursor:pointer;
-    color: rgba(255, 255, 255, 0.5);
+    color: #E7F6F2;
     font-weight:700;
     text-align: center;
 }

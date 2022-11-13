@@ -17,7 +17,7 @@ function NavBar() {
 
 
             <div className='UserDetails'>{localStorage.getItem("user")} <FontAwesomeIcon icon={faUser} /></div>
-            <div className='WelcomSide'>Welcome to CDN Project {localStorage.getItem("name")}</div>
+            <div className='WelcomSide'>Welcome {localStorage.getItem("name")}</div>
         </div>
     )
 }

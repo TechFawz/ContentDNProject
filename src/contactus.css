@@ -2,7 +2,7 @@
 {
     text-align: center;
     padding: 2% 5%;
-    background-color: rgba(254, 219, 57, 0.2);
+    background-color: #395B64;
     max-width: 70vw;
 }
 
@@ -19,7 +19,7 @@
     align-items: center;
     justify-content: center;
     font-size: x-large;
-    color: rgb(35, 41, 54);
+    color: #E7F6F2;
     padding: 10px;
 }
 

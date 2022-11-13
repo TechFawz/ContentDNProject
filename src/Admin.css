@@ -1,9 +1,9 @@
 table{
-    color: white;
+    color: #395B64;
 }
 
 th , td
 {
     padding: 10px 20px;
-    border: 2px solid white;
+    border: 2px solid #395B64;
 } 

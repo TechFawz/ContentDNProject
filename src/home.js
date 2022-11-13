@@ -11,7 +11,7 @@ function Home() {
 
     const [VideoData, SetVidioData] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:9080/videos').then(res => {
+        axios.get('http://localhost:9080/videos',{headers: { "authorization": localStorage.getItem("token") }}).then(res => {
             if (res.status == 200) {
                 SetVidioData(Object.values(res.data));
             }
@@ -54,10 +54,10 @@ function Vidio(d) {
     const [time, SetTime] = useState(0);
 
     if (value == "image") {
-        return (<Imge_meta SetValue={SetValue} data={data} />)
+        return(<Imge_meta SetValue={SetValue} data={data} />)
     }
     else {
-        return (<Video_stream SetValue={SetValue} data={data} SetTime={SetTime} time={time} />)
+        return(<Video_stream SetValue={SetValue} data={data} SetTime={SetTime} time={time} />)
     }
 
 
@@ -94,7 +94,7 @@ function Video_stream(d) {
         //     d.SetValue("image");
         //     d.SetTime(vidio.current.currentTime)
         // } 
-        axios.get('http://localhost:9080/servername').then(res => {
+        axios.get('http://localhost:9080/servername',{headers: { "authorization": localStorage.getItem("token") }}).then(res => {
             SetServer(res.data.server);
             vidio.current.play();
             vidio.current.currentTime = d.time;
@@ -104,11 +104,11 @@ function Video_stream(d) {
 
     return (
         <div>
-            <video width="350" height="240" className="Vidios" ref={vidio} controls >
+            <video width="350" height="240"  ref={vidio} controls >
                 <source src={`http://localhost:9080/xyz/${data.Name}`} type="video/mp4" />
             </video>
 
-            <h5 style={{color:"white" }} >Replica Server - {server}</h5>
+            <h5 style={{color:"#395B64" }} >Replica Server - {server}</h5>
         </div>
 
     )
