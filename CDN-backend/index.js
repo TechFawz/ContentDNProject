@@ -15,7 +15,6 @@ app.use(bodyParser.json());
 app.get('/xyz/:video_name', (req, res) => {
 
 
-    console.log("hello");
     const range = req.headers.range;
 
     if (!range) {
@@ -25,7 +24,6 @@ app.get('/xyz/:video_name', (req, res) => {
 
     REQUEST_COUNT++;
     const file = req.params.video_name;
-    console.log(file)
     const data = {
         "file": file
     }
@@ -86,6 +84,8 @@ app.get('/xyz/:video_name', (req, res) => {
 
 
 app.get("/servername",(req,res)=>{
+
+    console.log(REQUEST_COUNT);
 
     if(REQUEST_COUNT % 2 == 0)
     {
